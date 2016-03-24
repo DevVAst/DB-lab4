@@ -19,17 +19,17 @@ public class MainFrame extends JFrame {
     private String CountryFiltr;
     private String ContinentFiltr;
     private Dimension comboDimension = new Dimension(110,25);
-    JTable table;
-    TableModel tableModel;
-    DBConnection db;
-    JToggleButton btnF;
-    JComboBox<String> continentsCombo;
-    JComboBox<String> countriesCombo;
-    JComboBox<String> countryAddCity;
-    JComboBox<String> continentAddCountry;
-    Iterator<String> it;
-    boolean isFiltr=false;
-    HashMap<String,String> defFilterValues;
+    private JTable table;
+    private TableModel tableModel;
+    private DBConnection db;
+    private JToggleButton btnF;
+    private JComboBox<String> continentsCombo;
+    private JComboBox<String> countriesCombo;
+    private JComboBox<String> countryAddCity;
+    private JComboBox<String> continentAddCountry;
+    private  Iterator<String> it;
+    private boolean isFiltr=false;
+    private HashMap<String,String> defFilterValues;
     MainFrame(){
         db = new DBConnection("myDB.db");
         setTitle("База міст");
@@ -64,9 +64,6 @@ public class MainFrame extends JFrame {
         rendererDef = new DefaultTableCellRenderer() {
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                if(column==0 && Integer.parseInt(table.getValueAt(row, 0).toString())>10){
-                    cell.setBackground(Color.GREEN);
-                }else
                 cell.setBackground(Color.WHITE);
                 return cell;
             }

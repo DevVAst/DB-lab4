@@ -6,8 +6,8 @@ import javax.swing.table.AbstractTableModel;
  * Created by DevAs on 18.02.2016.
  */
 public class TableModel extends AbstractTableModel {
-    MainFrame mainFrame;
-    DBConnection db;
+    private  MainFrame mainFrame;
+    private DBConnection db;
     TableModel(DBConnection db, MainFrame mainFrame) {
         super();
         this.db = db;
@@ -31,7 +31,7 @@ public class TableModel extends AbstractTableModel {
         mainFrame.updateTable(false);
         String value1=(String)value;
         //удаляем пробел вначале строки
-        value1.trim();
+        value1 = value1.trim();
         db.updateValue(value1, rowIndex, columnIndex);
     }
     @Override
